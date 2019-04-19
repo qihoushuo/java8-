@@ -28,9 +28,8 @@ System.out.println(collect); //[A, B, C, D]
 List<Integer> num = Arrays.asList(1,2,3,4,5);
 List<Integer> collect1 = num.stream().map(n -> n * 2).collect(Collectors.toList());
 System.out.println(collect1); //[2, 4, 6, 8, 10]
-另一篇博客详细介绍了stream到底是什么，应该怎么操作，以及stream的map方法，reduce方法，filter方法等的使用实例。
---------------------- 
-作者：木子人弋山 
-来源：CSDN 
-原文：https://blog.csdn.net/lidai352710967/article/details/81461119 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+stream到底是什么，应该怎么操作，以及stream的map方法，reduce方法，filter方法等的使用实例。
+
+
