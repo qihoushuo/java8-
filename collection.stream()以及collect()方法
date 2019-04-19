@@ -1,0 +1,36 @@
+stream()方法和collect()方法都是java8的新特性
+
+工作的时候看到同事写的代码有点不懂，故搜索
+
+List<String> widgetIds = widgets.stream().map(Widget::getWidgetId).collect(Collectors.toList());
+解释下一这行代码：
+
+widgets：一个实体类的集合，类型为List<Widget>
+Widget：实体类
+getWidgetId：实体类中的get方法，为获取Widget的id
+本来想要获得wiget的id集合，按照我的思路肯定是遍历widges，依次取得widgetIds,但是此行代码更加简洁，高效
+
+stream()优点
+
+无存储。stream不是一种数据结构，它只是某种数据源的一个视图，数据源可以是一个数组，Java容器或I/O channel等。
+为函数式编程而生。对stream的任何修改都不会修改背后的数据源，比如对stream执行过滤操作并不会删除被过滤的元素，而是会产生一个不包含被过滤元素的新stream。
+惰式执行。stream上的操作并不会立即执行，只有等到用户真正需要结果的时候才会执行。
+可消费性。stream只能被“消费”一次，一旦遍历过就会失效，就像容器的迭代器那样，想要再次遍历必须重新生成。
+stream().map()方法的使用示例:
+
+ 
+List<String> list= Arrays.asList("a", "b", "c", "d");
+ 
+List<String> collect =list.stream().map(String::toUpperCase).collect(Collectors.toList());
+System.out.println(collect); //[A, B, C, D]
+ 
+ 
+List<Integer> num = Arrays.asList(1,2,3,4,5);
+List<Integer> collect1 = num.stream().map(n -> n * 2).collect(Collectors.toList());
+System.out.println(collect1); //[2, 4, 6, 8, 10]
+另一篇博客详细介绍了stream到底是什么，应该怎么操作，以及stream的map方法，reduce方法，filter方法等的使用实例。
+--------------------- 
+作者：木子人弋山 
+来源：CSDN 
+原文：https://blog.csdn.net/lidai352710967/article/details/81461119 
+版权声明：本文为博主原创文章，转载请附上博文链接！
